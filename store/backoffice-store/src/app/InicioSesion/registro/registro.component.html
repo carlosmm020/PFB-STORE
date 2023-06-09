@@ -1,0 +1,54 @@
+<form *ngIf="user" [formGroup]="myForm" #userFrom="ngForm" name="userForm" novalidate autocomplete="off" (ngSubmit)="submitFormulario()">
+    <div class="mb-3">
+        <label  for="user" class="form-label">Nombre de Usuario</label>
+        <input [(ngModel)]="user.nick" name="nick" formControlName="user" [class.is-invalid]="fail.user.errors && fail.user.touched" type="text" class="form-control" id="nick" placeholder="Dime tu nick">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Usuario Obligatorio y minimo 4 caracteres
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input [(ngModel)]="user.name" name="name" formControlName="name" [class.is-invalid]="fail.name.errors && fail.name.touched" type="name" class="form-control" id="name" placeholder="Dime tu nombre">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Nombre Obligatorio
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Apellidos</label>
+        <input [(ngModel)]="user.lastName" name="lastName" formControlName="lastName" [class.is-invalid]="fail.lastName.errors && fail.lastName.touched" type="lastName" class="form-control" id="lastName" placeholder="Dime tus apellidos">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Apellido Obligatorio
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Número de teléfono</label>
+        <input [(ngModel)]="user.phone" name="phone" formControlName="phone" [class.is-invalid]="fail.phone.errors && fail.phone.touched" type="phone" class="form-control" id="phone" placeholder="Dime tu número">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Teléfono Obligatorio y con 9 dígitos
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input [(ngModel)]="user.email" name="email" formControlName="email" [class.is-invalid]="fail.email.errors && fail.email.touched"type="email" class="form-control" id="email" placeholder="Dime tu correo">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Email Obligatorio y con este formato 'ejemplo@ejemplo.com'
+          </div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input [(ngModel)]="user.password" name="password" formControlName="password" [class.is-invalid]="fail.password.errors && fail.password.touched" type="password" class="form-control" id="password" placeholder="Dime tu contraseña">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Contraseña Obligatoria
+          </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Repetir contraseña</label>
+        <input formControlName="password" [class.is-invalid]="fail.password.errors && fail.password.touched" type="password" class="form-control" placeholder="Repetir contraseña">
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Repite la contraseña
+          </div>
+    </div>
+    <div class="mb-3">
+        <button (click)="saveUser()" [disabled]="userFrom.invalid" type="button" class="btn btn-success" (click)="submitFormulario">Registrarse</button>
+    </div>
+</form>
